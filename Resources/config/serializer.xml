@@ -67,7 +67,11 @@
         <service id="hateoas.serializer_registry.xml" class="%hateoas.serializer_registry.xml.class%">
             <call method="set">
                 <argument>default</argument>
-                <argument type="service" id="hateoas.serializer.json_hal" />
+                <argument type="service" id="hateoas.serializer.xml" />
+            </call>
+            <call method="set">
+                <argument>hal</argument>
+                <argument type="service" id="hateoas.serializer.xml_hal" />
             </call>
         </service>
         <service id="hateoas.serializer_registry.json" class="%hateoas.serializer_registry.json.class%">
@@ -87,6 +91,9 @@
             <call method="setMetadataFactory">
                 <argument type="service" id="jms_serializer.metadata_factory" />
             </call>
+        </service>
+        <!-- Serializers & Handlers -->
+        <service id="hateoas.serializer.xml_hal" class="%hateoas.serializer.xml.hal.class%" public="false">
         </service>
 
 
